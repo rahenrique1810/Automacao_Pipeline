@@ -1,7 +1,13 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-# gem "rails"
+group :test do
+    gem 'http'
+    gem 'rspec'
+    gem 'faker'
+    gem 'site_prism'
+    gem 'cucumber'
+    gem 'capybara'
+    gem 'solargraph'
+    gem 'allure-cucumber'
+    gem 'selenium-webdriver'
+end
