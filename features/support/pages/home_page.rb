@@ -14,6 +14,8 @@ class HomePage < SitePrism::Page
     element :create_users_form, :class => "collapsible-body"
     element :form, :class => "collapsible-header", :text => 'Formulário'
     element :button_back, :class => "waves-light", :text => 'Voltar'
+    element :message_user, :class => "center"
+    element :error, "#error_explanation"
 
     def click_on_form
         form.click
@@ -28,7 +30,7 @@ class HomePage < SitePrism::Page
     end
 
     def insert_age
-        user_age.send_keys [:up, '24']
+        user_age.send_keys [:up, '9']
     end
 
     def insert_email
@@ -65,5 +67,9 @@ class HomePage < SitePrism::Page
 
     def create_button
         button_create
+    end
+
+    def message_error
+        error
     end
 end
