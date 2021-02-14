@@ -10,17 +10,17 @@ class HomePage < SitePrism::Page
     element :user_adress, "#user_address"
     element :user_profile, "#user_profile"
     element :user_university, "#user_university"
-    element :button_create, :input => "commit"
-    element :create_users, :class => "collapsible-body"
+    element :button_create, 'input[value="Criar"]'
+    element :create_users_form, :class => "collapsible-body"
     element :form, :class => "collapsible-header", :text => 'Formulário'
-    element :button_back, :class => "btn waves-light red", :text => 'Voltar'
+    element :button_back, :class => "waves-light", :text => 'Voltar'
 
     def click_on_form
         form.click
     end
 
     def click_on_create_users
-        create_users.find(:xpath, "/html/body/div[2]/div[1]/ul/li[1]/div/ul/li[1]/a").click
+        create_users_form.find(:xpath, "/html/body/div[2]/div[1]/ul/li[1]/div/ul/li[1]/a").click
     end
 
     def insert_name
@@ -28,7 +28,7 @@ class HomePage < SitePrism::Page
     end
 
     def insert_age
-        user_age.rand(99)
+        user_age.send_keys [:up, '24']
     end
 
     def insert_email
@@ -37,5 +37,33 @@ class HomePage < SitePrism::Page
 
     def insert_last_name
         last_name.set Faker::Name.last_name()
+    end
+
+    def insert_gender 
+        user_gender.set 'Masculino'
+    end
+
+    def insert_adress
+        user_adress.set Faker::Address.street_address
+    end
+
+    def insert_profile
+        user_profile.set 'Analista de Qualidade SR' 
+    end
+
+    def insert_university
+        user_university.set Faker::University.name
+    end
+
+    def click_button_create
+        button_create.click
+    end
+
+    def click_button_back
+        button_back.click
+    end
+
+    def create_button
+        button_create
     end
 end

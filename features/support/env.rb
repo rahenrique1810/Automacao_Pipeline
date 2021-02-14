@@ -9,5 +9,5 @@ require "selenium-webdriver"
   Capybara.configure do |config|
     config.default_driver = :selenium_chrome
     config.app_host = "https://automacaocombatista.herokuapp.com/treinamento/home"
-    Capybara.default_max_wait_time = 10
+    Capybara.default_max_wait_time = 2
   end
